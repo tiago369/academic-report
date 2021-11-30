@@ -1,38 +1,122 @@
 \chapter{Conceito do projeto}
 \label{chap:fundteor}
 %--------- NEW SECTION ----------------------
-Os robôs móveis têm a capacidade de se moverem sem a assistência de um operador humano. Os mesmos podem ser classificados,quanto ao sistema de locomoção, como terrestres, aquáticos e aéreos. Os terrestres são subdivididos em robôs que possuem rodas, pernas (bípedes) ou esteiras (ref:Review ArticleA review of mobile robots:). Cada um desses métodos possuem características especifícas quanto ao movimento a ser realizado. Os bípedes, por exemplo, simulam um caminhar antropomórfico, semelhante aos humanos.
+Os robôs móveis têm a capacidade de se moverem sem a assistência de um 
+operador humano. Os mesmos podem ser classificados,quanto ao sistema de 
+locomoção, como terrestres, aquáticos e aéreos. Os terrestres são subdivididos 
+em robôs que possuem rodas, pernas (bípedes) ou esteiras (ref:Review ArticleA 
+review of mobile robots:). Cada um desses métodos possuem características especifícas 
+quanto ao movimento a ser realizado. Os bípedes, por exemplo, simulam um caminhar 
+antropomórfico, semelhante aos humanos.
 isso é igual <=  === <> #{ #( www
 <| |>
 ===
 
 
 
-O desenvolvimento deste projeto consiste em produzir um robô que possa caminhar sobre duas pernas. Além disso, o walker deve se locomover de forma autonôma a fim de realizar uma dada missão.
+O desenvolvimento deste projeto consiste em produzir um robô que possa caminhar 
+sobre duas pernas. Além disso, o walker deve se locomover de forma autonôma a fim 
+de realizar uma dada missão.
 
-Neste capítulo serão abordados os requisitos do cliente, os requisistos técnicos, a missão do robô e a pesquisa por similares. 
+Neste capítulo serão abordados os requisitos do cliente, os requisistos técnicos, 
+a missão do robô e a pesquisa por similares. 
 
 
+\section{Desafio Workbooks Python}
 
-%conferir se precisa de requisitos do cliente
-\section{Requisitos do cliente}
- O cliente definiu certos requisitos quanto à operação e  às características do robô:
- \begin{itemize}
-    \item Operar em uma área de 2x1,5m;
-    \item Possuir uma altura de aproximadamente 30 cm;
-    \item Ser capaz de operar por, no mínimo 20 minutos;
-    \item Ser capaz de desviar de obstáculos;
- \end{itemize}
+O desafio de Workbooks utilizando a linguagem python foi composto de 16 desafios de 
+programação utilizando a linguagem python.
 
- \section{Requisitos técnicos}
+\section{Desafio C++}
+O desafio de C++ foi composto de três desafios de programação que utiliza a linguagem 
+de programação C++.
 
-\lipsum[2-4]
+\section{Turtlesim setpoint position}
+Consiste em utilizar o software Turtlesim para através do ROS escolher 
+uma posição e fazê-lo se deslocar até ela. A movimentação programada na 
+Turtlesim se baseia em uma teoria principal, que é o
+Dead reckoning. Dessa forma, o Dead reckoning consistem em calcular a 
+distancia que falta do robô para determinando objetivo e incorporar esses
+valores a sua position e velocidade. No caso da Turtlesim foi calculado
+sua distancia usando o teormea de pitagoras e o angulo pelo qua a tartaruga
+precisou virar pela trigonometria.
 
- \section{Missão}
- \lipsum
- %desenvolver mais
- Além disso, o Walker deve realizar um desafio, que consiste em navegar de forma autônoma, se localizar por meio de tags e encontrar um determinado objeto.
- \section{Pesquisa por similares}
+%imagem  https://en.wikipedia.org/wiki/Dead_reckoning
+
+Na navegação do Turtlesim, o teorema de pitagoras é utilizado para calcular
+a distancia entre a mesma e o objetivo definido durante cada instante. Para 
+isso foi utilizado a seguinte formula 
+$d = \sqrt{(x\textsubscript{f} - x\textsubscript{i})^2 + (y\textsubscript{f} - y\textsubscript{i})^2}$
+. Nos quais x\textsubscript{f} e y\textsubscript{f} são as distancias finais
+e x\textsubscript{i} e y\textsubscript{i} são as distancias da tartaruga 
+em determinado instante.
+
+Assim, para calcular quanto que o Turtlesim precisa girar faz o uso da 
+trigonometria, para calcular o angulo do qual a Turtlesim esta deslocada 
+em relação ao objetivo. Com isso, se faz o uso da formula de arctg na qual 
+$\theta = \frac{y\textsubscript{f} - y\textsubscript{i}}{x\textsubscript{f} - x\textsubscript{i}} $
+. Por fim, pegamos esse angulo e subtraimos do angulo atual da Turtlesim
+para descobrir o quanto a tartaruga precisa rotacionar.
+
+Para definir a velocidade da tartaruga multiplicamos a distancia por uma constante e
+para descobrir o quanto ela precisa rotacionar multiplicamos a 
+angulação por outra constante. Assim esses dados são publicados no topic
+cmd\_vel para alterar a velocidade da turtle até que ela chegue no objetivo
+especificado.
+
+\section{Desafio Webots}
+
+O Webots é uma plataforma opensource usada para simular robôs. 
+Desse modo, o desafio consiste em utilizar essa plataforma para 
+simular um robo chamado piooner3x, corringindo o codigo ja existente
+e alterando ele para caso ele encontre uma luminaria pare de se locomover.
+
+A partir disso foram realizados os tutorias dessa plataforma para 
+ter conhecimento de como a utiliza-la e como simular os robos. 
+Em seguida foi colocado um sensor de luz no piooner3x para que 
+o mesmo tenha uma forma de detectar a luminosidade do ambiente
+e seu codigo foi alterado para que se a leitura do sensor 
+ultrapasse determinado valor ele pare
+
+
+\section{Desafio Husky}
+Husky é um veiculo UGV no qual atraves do ROS pode ser 
+simulado em conjunto com o gazebosim e o rviz, sendo ambos
+simualdores no qual o primeiro é voltado para o ambiente 
+ao redor do husky e o segundo é como esse ugv percebe o mundo.
+O desafio consiste em utilizar os simuladores para testar
+diferentes formas de navegação com o husky.
+
+O primeiro desafio é simular o husky com o package move base. 
+Consiste em dar uma localização no mundo e ele ira tentar atingir 
+esse objetivo. Caso o ugv identifique algum obstaculo ele ira desviar,
+ou caso fique preso ira entrar em um processo chamado conservative reset
+se parar de ficar preso voltara a navegação, caso não entrara em 
+clearing rotation, se mesmo assim continuar preso iniciara um agressive reset
+e continuando preso vai por fim fazer uma clearing rotation e se mesmo 
+assim continuar preso vai abortar a ação. Como mostra na imagem
+
+%imagem https://wiki.ros.org/move_base
+
+O segundo desafio é o amcl demo, o qual é a junção do move base com o
+amcl. Assim o amcl é um sistema probabilistico de localização do robô
+o qual atraves de sensores de laser fazem o tracking da posisção do 
+robo dentro de um mapa.
+
+%imagem do simulador 
+
+Gmapping demo é o terceiro desafio, ele é a junção do move base com o
+gmapping. Esse package prove um SLAM (Simultaneos localization and mapping), 
+baseado em sensores a laser. Com o gmapping é criado um mapa 2D do ambiente.
+Como pode ser mostrado na imagem abaixo.
+
+%imagem do mapa
+
+Por ultimo foi realizado o frontier exploration demo, é composto 
+pelo move base, gmapping, e o frontier exploration. Dessa forma,
+o frontier em conjunto com esses packages para realizar a 
+exploração de ambientes
+
 %----------------------------------------------------------
 
 %--------- NEW SECTION ----------------------
