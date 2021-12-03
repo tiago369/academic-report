@@ -1,55 +1,38 @@
 \chapter{Conceito do projeto}
 \label{chap:fundteor}
 
-Para a realização de cada desafio foi necessario se basear em uma serie de trabalhos
-
-
-
+Para a realização de cada desafio foi necessario capitar conhecimento de diversas fontes para poder construi-lo. Contudo fica evidente a necessidade de trazer esses materiais que inspiraram a produção de tal material.
 
 \section{Desafio Workbooks Python}
 
 O desafio de Workbooks utilizando a linguagem python foi composto de 16 desafios de programação utilizando a linguagem python. Partindo dessa contexto, tudo se iniciou com o estudo de bibliotecas e python, para poder ralizar as tarefas da forma mais eficiente possivel.
 
 \section{Desafio C++}
-O desafio de C++ foi composto de três desafios de programação que utiliza a linguagem de programação C++. Portanto para a primeira tarefa foi feito um estudo matematico para a enteder como funciona o triangulo de pascal. Em seguida para a segunda tarefa foi feito um estudo combinatorio sobre permutações e depois um estudo sobre bibliotecas  com a função de realizar essas combinações de palavras de forma mais eficaz. Por fim, para a terceira foi feito um estudo acerca de bibliotecas que trabalhassem com arquivos para assim ler o codigo que estava escrito
+O desafio de C++ foi composto de três desafios de programação que utiliza a linguagem de programação C++. Portanto para a primeira tarefa foi feito um estudo matematico para a enteder como funciona o triangulo de pascal. Em seguida para a segunda tarefa foi feito um estudo combinatorio sobre permutações e depois um estudo sobre bibliotecas  com a função de realizar essas combinações de palavras de forma mais eficaz. Por fim, para a terceira foi feito um estudo acerca de bibliotecas que trabalhassem com arquivos para assim ler o codigo que estava escrito. Dessa maneira, foram baseados a construção dos desafios.
 
 \section{Turtlesim setpoint position}
-Consiste em utilizar o software Turtlesim para através do ROS escolher 
-uma posição e fazê-lo se deslocar até ela. A movimentação programada na 
-Turtlesim se baseia em uma teoria principal, que é o
-Dead reckoning. Dessa forma, o Dead reckoning consistem em calcular a 
-distancia que falta do robô para determinando objetivo e incorporar esses
-valores a sua posição e velocidade, como pode ser exemplificado na figura \ref{fig:Dead reckoning}. No caso da Turtlesim foi calculado
-sua distancia usando o teormea de pitagoras e o angulo pelo qua a tartaruga
-precisou virar pela trigonometria.
+Consiste em utilizar o software \textit{Turtlesim} para através do ROS escolher uma posição e fazê-lo se deslocar até ela. A movimentação programada na \textit{Turtlesim} se baseia em uma teoria principal, que é o \textit{Dead Reckoning}. Dessa forma, o \textit{Dead Reckoning} consiste em calcular a distância que falta do robô para determinado objetivo e incorporar esses valores a sua posição e velocidade, como pode ser exemplificado na figura \ref{fig:Dead reckoning}. No caso da \textit{Turtlesim} foi calculado sua distância usando o teorema de pitágoras e o ângulo pelo qual a tartaruga precisou virar pela trigonometria.
 
 %imagem  https://en.wikipedia.org/wiki/Dead_reckoning
 
 \begin{figure}[h!]
     \centering
     \caption{Dead reckoning}
-    \includegraphics[width=0.8\textwidth]{Figures/dead_reck.png}
-    \caption*{Fonte: WIkipedia}
+    \includegraphics[width=0.4\textwidth]{Figures/dead_reck.png}
+    \caption*{Fonte: Wikipedia.}
     \label{fig:Dead reckoning}
 \end{figure}
 
-Na navegação do Turtlesim, o teorema de pitagoras é utilizado para calcular
-a distancia entre a mesma e o objetivo definido durante cada instante. Para 
-isso foi utilizado a seguinte formula 
-$d = \sqrt{(x\textsubscript{f} - x\textsubscript{i})^2 + (y\textsubscript{f} - y\textsubscript{i})^2}$
-. Nos quais x\textsubscript{f} e y\textsubscript{f} são as distancias finais
-e x\textsubscript{i} e y\textsubscript{i} são as distancias da tartaruga 
-em determinado instante.
+Na navegação do \textit{Turtlesim}, o teorema de pitagoras é utilizado para calcular
+a distância entre a mesma e o objetivo definido durante cada instante. Para isso foi utilizado a fórmula 
+    $d = \sqrt{(x\textsubscript{f} - x\textsubscript{i})^2 + (y\textsubscript{f} - y\textsubscript{i})^2}$
+. Nos quais x\textsubscript{f} e y\textsubscript{f} são as distâncias finais e x\textsubscript{i} e y\textsubscript{i} são as distâncias da tartaruga em determinado instante.
 
-Assim, para calcular quanto que o Turtlesim precisa girar faz o uso da 
-trigonometria, para calcular o angulo do qual a Turtlesim esta deslocada 
-em relação ao objetivo. Com isso, se faz o uso da formula de arctg na qual 
+Assim, para calcular quanto que o \textit{Turtlesim} precisa girar faz o uso da trigonometria, para calcular o ângulo do qual a \textit{Turtlesim} esta deslocada  em relação ao objetivo. Com isso, se faz o uso da fórmula de arctg na qual 
 $\theta = \frac{y\textsubscript{f} - y\textsubscript{i}}{x\textsubscript{f} - x\textsubscript{i}} $
-. Por fim, pegamos esse angulo e subtraimos do angulo atual da Turtlesim
-para descobrir o quanto a tartaruga precisa rotacionar.
+. Por fim, pegamos esse angulo e subtraímos do ângulo atual da \textit{Turtlesim} para descobrir o quanto a tartaruga precisa rotacionar.
 
-Para definir a velocidade da tartaruga multiplicamos a distancia por uma constante e
-para descobrir o quanto ela precisa rotacionar multiplicamos a 
+Para definir a velocidade da tartaruga multiplicamos a distância por uma constante e para descobrir o quanto ela precisa rotacionar multiplicamos a 
 angulação por outra constante. Assim esses dados são publicados no topic
 cmd\_vel para alterar a velocidade da turtle até que ela chegue no objetivo
 especificado.
@@ -58,15 +41,23 @@ especificado.
 
 O Webots é uma plataforma opensource usada para simular robôs. 
 Desse modo, o desafio consiste em utilizar essa plataforma para 
-simular um robo chamado piooner3x, corringindo o codigo ja existente
+simular um robo chamado piooner3x, corrigindo o código ja existente
 e alterando ele para caso ele encontre uma luminaria pare de se locomover.
 
-A partir disso foram realizados os tutorias dessa plataforma para 
-ter conhecimento de como a utiliza-la e como simular os robos. 
+A partir disso foram realizados os tutoriais dessa plataforma para 
+ter conhecimento de como utilizá-la e como simular os robôs. 
 Em seguida foi colocado um sensor de luz no piooner3x para que 
 o mesmo tenha uma forma de detectar a luminosidade do ambiente
-e seu codigo foi alterado para que se a leitura do sensor 
-ultrapasse determinado valor ele pare
+e seu código foi alterado para que se a leitura do sensor 
+ultrapasse determinado valor ele pare.
+
+\begin{figure}[h!]
+    \centering
+    \caption{Webots}
+    \includegraphics[width=1\textwidth]{Figures/webots3.png}
+    \caption*{Fonte: Autoria propria.}
+    \label{fig:Webots}
+\end{figure}
 
 
 \section{Desafio Husky}
@@ -84,9 +75,17 @@ ou caso fique preso ira entrar em um processo chamado conservative reset
 se parar de ficar preso voltara a navegação, caso não entrara em 
 clearing rotation, se mesmo assim continuar preso iniciara um agressive reset
 e continuando preso vai por fim fazer uma clearing rotation e se mesmo 
-assim continuar preso vai abortar a ação. Como mostra na imagem
+assim continuar preso vai abortar a ação. Como mostra na imagem \ref{fig:Move Base}.
 
 %imagem https://wiki.ros.org/move_base
+
+\begin{figure} [h!]
+    \centering
+    \caption{Move Base}
+    \includegraphics[width=0.8\textwidth]{Figures/recovery_behaviors.png}
+    \caption*{Fonte: ROS Wiki.}
+    \label{fig:Move Base}
+\end{figure}
 
 O segundo desafio é o amcl demo, o qual é a junção do move base com o
 amcl. Assim o amcl é um sistema probabilistico de localização do robô
