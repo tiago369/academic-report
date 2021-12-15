@@ -21,5 +21,6 @@
   ],
   "python.analysis.extraPaths": [
     "/opt/ros/noetic/lib/python3/dist-packages"
-  ]
+  ],
+  "todo-tree.tree.showBadges": true
 }
