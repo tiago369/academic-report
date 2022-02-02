@@ -112,6 +112,21 @@
 \usepackage{lipsum}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{listings}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+
+\lstset{
+  breaklines=true,
+  frame=single,
+  keepspaces=true,
+  commentstyle=\color{mygreen},
+  keywordstyle=\color{blue},
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+}
+
 %
 \makeindex 
 \setlength{\LTcapwidth}{\textwidth}
@@ -197,9 +212,10 @@
 % Include thesis chapters
     \parskip=\baselineskip
     \include{Chapters/introducao}
-    \include{Chapters/fundamentos}
-    \include{Chapters/metodos}
-    \include{Chapters/resultados}
+    \include{Chapters/Desenvolvimento}
+%    \include{Chapters/fundamentos}
+%    \include{Chapters/metodos}
+%    \include{Chapters/resultados}
     \include{Chapters/conclusao}
     % include more chapters ...
 %
